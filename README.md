@@ -2,6 +2,8 @@
 
 An editorial commerce experience evolved from my original storefront project, with a complete product collection, detail views, persistent cart, mocked checkout, original CSS artwork, tests, and responsive design.
 
+**[Open the live demo](https://paulrevanthpersonal-lab.github.io/atelier-storefront/)**
+
 ![Editorial storefront](docs/screenshots/editorial-home.png)
 
 ## 1. Overview
