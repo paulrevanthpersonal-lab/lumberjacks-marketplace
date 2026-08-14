@@ -1,7 +1,123 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Aster & Loom - an editorial commerce experience."><title>Aster & Loom Storefront</title><link rel="stylesheet" href="assets/styles.css"></head><body><header><a class="logo" href="#home">ASTER <i>&</i> LOOM</a><nav><button data-view="home" class="active">Journal</button><button data-view="shop">Collection</button><button data-view="about">Studio</button></nav><button class="bag" id="bagButton">Bag <span id="bagCount">0</span></button></header><main>
-<section class="view active" data-page="home"><div class="hero"><div class="hero-copy"><p>EDITION 06 / DESERT FORMS</p><h1>Objects for<br><em>slower living.</em></h1><button data-view="shop">View the collection ↗</button></div><div class="hero-art"><span class="vase"></span><span class="plinth"></span><small>HAND-FINISHED / PHOENIX</small></div></div><div class="marquee"><span>LIMITED FORMS · NATURAL MATERIALS · MADE IN SMALL RUNS · </span><span>LIMITED FORMS · NATURAL MATERIALS · MADE IN SMALL RUNS · </span></div><section class="arrivals"><div class="section-head"><p>01 / NEW ARRIVALS</p><h2>For the room,<br>and the ritual.</h2></div><div class="feature-products" id="featureProducts"></div></section><section class="story"><div class="story-art"><span></span></div><div><p>02 / STUDIO NOTE</p><h2>Useful objects should<br>age with grace.</h2><p>We imagine a fictional design studio where proportion, texture, and daily use matter more than novelty. Each piece begins with one material and one clear purpose.</p><button data-view="about">Read the studio story</button></div></section></section>
-<section class="view" data-page="shop"><div class="shop-title"><p>THE FULL COLLECTION / 2026</p><h1>Quiet utility.</h1></div><div class="shop-controls"><div id="filters"><button class="active" data-filter="All">All</button><button data-filter="Home">Home</button><button data-filter="Wear">Wear</button><button data-filter="Carry">Carry</button></div><label>Sort<select id="sort"><option value="featured">Editorial order</option><option value="price-asc">Price low</option><option value="price-desc">Price high</option></select></label></div><div class="product-grid" id="productGrid"></div></section>
-<section class="view" data-page="product"><button class="back" data-view="shop">← Back to collection</button><div class="product-detail"><div class="gallery"><div class="detail-art" id="detailArt"></div><div class="thumbs"><button></button><button></button><button></button></div></div><div class="detail-copy"><p id="detailCategory"></p><h1 id="detailName"></h1><strong id="detailPrice"></strong><p id="detailDescription"></p><label>FINISH<select id="variant"><option>Natural</option><option>Terracotta</option><option>Ink</option></select></label><button class="add-large" id="detailAdd">Add to bag</button><div class="details-list"><p><span>Material</span><b>Natural fiber / mineral finish</b></p><p><span>Production</span><b>Small-batch demonstration</b></p><p><span>Shipping</span><b>Mocked portfolio flow</b></p></div></div></div></section>
-<section class="view" data-page="checkout"><div class="checkout-page"><div><p>SECURE DEMO / NO PAYMENT</p><h1>Complete<br>the ritual.</h1><div class="steps"><span class="active">1 Contact</span><span>2 Delivery</span><span>3 Review</span></div><form id="checkoutForm"><label>Email<input type="email" required placeholder="you@example.com"></label><div><label>First name<input required></label><label>Last name<input required></label></div><label>Delivery address<input required></label><button>Continue to delivery</button></form></div><aside><p>ORDER SUMMARY</p><div id="checkoutItems"></div><div class="order-total"><span>Total</span><strong id="checkoutTotal">$0</strong></div><small>Demonstration only. No information is transmitted.</small></aside></div></section>
-<section class="view" data-page="about"><div class="about-hero"><p>THE FICTIONAL STUDIO</p><h1>Material.<br>Function.<br><em>Restraint.</em></h1></div><div class="about-story"><span>EST. AS A PORTFOLIO BUILD</span><div><p>Aster & Loom is an editorial commerce demonstration evolved from my earlier storefront project. I rebuilt its architecture, product interactions, cart, checkout flow, documentation, and visual identity as a standalone hiring portfolio piece.</p><p>The studio and products are fictional. The engineering is real: stateful navigation, filter and sort rules, persistent cart behavior, responsive layouts, accessibility semantics, tests, and repeatable screenshots.</p></div></div></section></main>
-<div class="scrim" id="scrim" hidden></div><aside class="drawer" id="drawer" aria-hidden="true"><div class="drawer-head"><h2>Your bag</h2><button id="closeBag">×</button></div><div id="bagItems" class="bag-items"></div><div class="bag-total"><p><span>Subtotal</span><strong id="bagTotal">$0</strong></p><button id="checkoutButton">Begin checkout</button></div></aside><div class="toast" id="toast" role="status"></div><script src="assets/core.js"></script><script src="assets/app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Lumberjacks Marketplace is a full-stack catalog, cart, checkout, inventory, and order-management application.">
+  <title>Lumberjacks Marketplace</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#home" data-route="home" aria-label="Lumberjacks Marketplace home">
+      <span class="brand-mark" aria-hidden="true">LM</span>
+      <span><strong>Lumberjacks</strong><small>Marketplace · Est. 2023</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <button data-route="home" class="active">Home</button>
+      <button data-route="shop">Shop</button>
+      <button data-route="orders">Orders</button>
+      <button data-route="operations">Operations</button>
+      <button data-route="about">About</button>
+    </nav>
+    <div class="header-actions">
+      <button class="text-button" id="accountButton">Sign in</button>
+      <button class="cart-button" id="openCart" aria-controls="cartDrawer" aria-expanded="false"><span>Basket</span><b id="cartCount">0</b></button>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page active" data-page="home">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Northern Arizona provisions</p>
+          <h1>Good food, clear sourcing, no supermarket maze.</h1>
+          <p>Thirty-six market essentials from regional growers, independent makers, and trusted producers—organized for a quick weekly shop.</p>
+          <div class="hero-actions"><button class="primary" data-route="shop">Shop the market</button><button class="secondary" data-route="about">How it works</button></div>
+          <dl class="proof"><div><dt>36</dt><dd>catalog items</dd></div><div><dt>6</dt><dd>departments</dd></div><div><dt>Free</dt><dd>delivery over $50</dd></div></dl>
+        </div>
+        <div class="hero-visual" aria-label="Fresh market produce and bread">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1400&q=88" alt="Produce displayed at a neighborhood market">
+          <div class="hero-note"><span>Today’s pickup</span><strong>Ready in 90 minutes</strong></div>
+        </div>
+      </div>
+      <section class="home-section">
+        <header class="section-heading"><div><p class="eyebrow">This week</p><h2>Market favorites</h2></div><button class="text-button" data-route="shop">View all 36 →</button></header>
+        <div class="product-grid feature-grid" id="featuredProducts" aria-live="polite"></div>
+      </section>
+      <section class="service-strip" aria-label="Store services">
+        <article><span>01</span><h3>Regional first</h3><p>Arizona and Southwest suppliers are identified in every product record.</p></article>
+        <article><span>02</span><h3>Inventory aware</h3><p>Cart and checkout operations validate live server-side stock.</p></article>
+        <article><span>03</span><h3>Persistent accounts</h3><p>Signed-in carts and orders are saved by the backend—not only the browser.</p></article>
+      </section>
+    </section>
+
+    <section class="page shop-page" data-page="shop">
+      <header class="catalog-header">
+        <div><p class="eyebrow">Full catalog</p><h1>The weekly market</h1><p id="resultSummary">Loading the catalog…</p></div>
+        <div class="catalog-tools">
+          <label class="search-field"><span>Search</span><input id="searchInput" type="search" placeholder="Try coffee, local, bakery…" autocomplete="off"></label>
+          <label><span>Sort</span><select id="sortSelect"><option value="featured">Featured</option><option value="rating">Best rated</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option></select></label>
+        </div>
+      </header>
+      <div class="category-bar" id="categoryBar" aria-label="Product categories"></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="page constrained" data-page="orders">
+      <header class="page-heading"><p class="eyebrow">Account</p><h1>Your orders</h1><p>Confirmed and completed orders are loaded from the application service.</p></header>
+      <div id="ordersPanel" class="orders-panel"></div>
+    </section>
+
+    <section class="page constrained" data-page="operations">
+      <header class="page-heading"><p class="eyebrow">Internal view</p><h1>Commerce operations</h1><p>A read-only view of inventory health, order volume, revenue, and recent events.</p></header>
+      <div class="metric-grid" id="operationsMetrics"></div>
+      <div class="operations-grid"><section class="data-panel"><header><h2>Low-stock queue</h2><span>Reorder candidates</span></header><div id="lowStock"></div></section><section class="data-panel"><header><h2>Audit stream</h2><span>Latest mutations</span></header><div id="auditStream"></div></section></div>
+    </section>
+
+    <section class="page constrained" data-page="about">
+      <header class="page-heading"><p class="eyebrow">Project history</p><h1>From coursework storefront to full-stack system.</h1></header>
+      <div class="about-grid">
+        <article><h2>What I rebuilt</h2><p>I started this project in ITC505 as Lumberjacks Store: a browser-based organic-products page with navigation, product cards, a shopping-cart panel, and login UI. I retained that project identity and rebuilt the implementation around a structured catalog, accessible flows, server-side carts, order creation, inventory checks, automated tests, and operations visibility.</p></article>
+        <article><h2>Engineering decisions</h2><ul><li>Dependency-light Node.js service using native HTTP and file persistence</li><li>REST endpoints separated from presentation logic</li><li>Server-side price and stock validation during checkout</li><li>Static catalog fallback so the hosted interface remains reviewable</li><li>Keyboard-operable dialogs, filters, navigation, and cart controls</li></ul></article>
+        <article><h2>Implementation boundary</h2><p>This is a working portfolio application with seeded products and a mocked payment boundary. It does not process real payment credentials or claim a production deployment. The Docker/local service is the full-stack experience; GitHub Pages hosts the frontend review build.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-labelledby="cartTitle">
+    <header><div><p class="eyebrow">Current order</p><h2 id="cartTitle">Your basket</h2></div><button class="icon-button" id="closeCart" aria-label="Close basket">×</button></header>
+    <div class="cart-lines" id="cartLines"></div>
+    <div class="cart-summary" id="cartSummary"></div>
+    <button class="primary full" id="beginCheckout">Continue to checkout</button>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <dialog id="productDialog" class="product-dialog">
+    <button class="dialog-close" data-close="productDialog" aria-label="Close product">×</button>
+    <div class="product-detail"><img id="detailImage" alt=""><div><p class="eyebrow" id="detailMeta"></p><h2 id="detailName"></h2><div class="rating" id="detailRating"></div><p id="detailDescription"></p><dl id="detailFacts"></dl><div class="detail-purchase"><strong id="detailPrice"></strong><button class="primary" id="detailAdd">Add to basket</button></div></div></div>
+  </dialog>
+
+  <dialog id="accountDialog" class="account-dialog">
+    <button class="dialog-close" data-close="accountDialog" aria-label="Close sign in">×</button>
+    <p class="eyebrow">Customer account</p><h2>Sign in to save carts and orders</h2>
+    <form id="loginForm"><label>Email<input name="email" type="email" value="paul@lumberjacks.local" required></label><label>Password<input name="password" type="password" value="Lumberjack2026!" required></label><p class="form-error" id="loginError" role="alert"></p><button class="primary full">Sign in securely</button></form>
+    <p class="demo-note">Seed account is included for reviewer access. Authentication is intentionally scoped to this local portfolio service.</p>
+  </dialog>
+
+  <dialog id="checkoutDialog" class="checkout-dialog">
+    <button class="dialog-close" data-close="checkoutDialog" aria-label="Close checkout">×</button>
+    <p class="eyebrow">Secure checkout</p><h2>Delivery details</h2>
+    <ol class="steps"><li class="active">Basket</li><li class="active">Delivery</li><li>Confirmation</li></ol>
+    <form id="checkoutForm"><label>Delivery address<textarea name="address" required>1500 S Lumberjack Road, Flagstaff, AZ 86011</textarea></label><fieldset><legend>Delivery slot</legend><label class="slot"><input type="radio" name="deliverySlot" value="Today, 5–7 PM" checked><span><strong>Today</strong><small>5–7 PM · $5.99 or free over $50</small></span></label><label class="slot"><input type="radio" name="deliverySlot" value="Tomorrow, 9–11 AM"><span><strong>Tomorrow</strong><small>9–11 AM · free</small></span></label></fieldset><div class="payment-boundary"><strong>Payment boundary</strong><p>No card data is collected. Submission creates a confirmed test order through the backend.</p></div><p class="form-error" id="checkoutError" role="alert"></p><button class="primary full">Place test order</button></form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer><div><strong>Lumberjacks Marketplace</strong><p>Full-stack commerce engineering project by Paul Revanth Madasu.</p></div><div><a href="https://github.com/paulrevanthpersonal-lab/lumberjacks-marketplace">Source</a><button data-route="about">Project notes</button></div></footer>
+  <script src="assets/core.js"></script>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

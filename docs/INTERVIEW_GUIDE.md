@@ -1,5 +1,5 @@
 # Interview guide
 
-Aster & Loom is the professional evolution of my earlier Lumberjacks Store / Organica storefront work. The original established responsive sections and commerce-oriented content. I rebuilt the portfolio edition with a distinct fictional brand, routed product views, tested filter/sort/cart rules, persistent state, product detail, a mocked checkout, responsive behavior, and original CSS product artwork.
+Lumberjacks Marketplace is the full-stack evolution of my original ITC505 Lumberjacks Store. The original established the grocery concept, responsive sections, login UI, and cart interaction. I expanded it into a 36-product catalog with routes, search, product detail, authenticated saved carts, inventory-validated checkout, order history, operations metrics, tests, and documentation.
 
-Useful discussion points include separating business rules from DOM behavior, making a static product feel stateful without a framework, setting honest payment boundaries, and creating differentiated UI systems across a portfolio.
+Useful discussion points include separating business rules from browser rendering, validating all checkout inputs on the server, keeping a static review fallback without hiding unavailable features, explaining why payment data is out of scope, and tracing an order through inventory mutation and the audit log.

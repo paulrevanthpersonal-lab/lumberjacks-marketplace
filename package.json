@@ -1,0 +1,13 @@
+{
+  "name": "lumberjacks-marketplace",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/core.test.cjs && node tests/api.check.mjs",
+    "check": "node --check server.js && node --check assets/app.js && node --check assets/core.js"
+  },
+  "engines": {"node": ">=20"}
+}

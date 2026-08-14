@@ -1,5 +1,5 @@
 # UX notes
 
-The project deliberately avoids default marketplace patterns. Oversized editorial typography, long-form pacing, constrained terracotta color, abstract product forms, and quiet controls position the fictional brand as a design journal first and a catalog second.
+The product retains the local-market personality of the original coursework while using a new green, cream, and charcoal system. Large department navigation, a persistent basket, clear stock language, compact product cards, and progressive dialogs keep a 36-item catalog scannable on desktop and mobile.
 
-The checkout is explicitly mocked. It validates required fields locally but does not transmit personal information or represent a payment integration.
+The checkout creates a local test order only after the service validates authentication, address, delivery slot, product IDs, quantities, and current stock. It never asks for payment credentials. When hosted on GitHub Pages, unavailable server features are labeled instead of being simulated as successful.
