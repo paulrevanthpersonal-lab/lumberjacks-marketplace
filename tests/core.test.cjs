@@ -1,0 +1,2 @@
+const test=require("node:test"),assert=require("node:assert/strict"),core=require("../assets/core.js");const items=[{id:"a",category:"Home",price:30,rank:2},{id:"b",category:"Wear",price:10,rank:1}];
+test("filters product category",()=>assert.deepEqual(core.filter(items,"Home").map(x=>x.id),["a"]));test("sorts prices without mutation",()=>{assert.deepEqual(core.sort(items,"price-asc").map(x=>x.id),["b","a"]);assert.equal(items[0].id,"a")});test("calculates cart subtotal",()=>assert.equal(core.subtotal(items,{a:2,b:1}),70));
